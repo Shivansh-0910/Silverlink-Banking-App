@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Silverlink Bank</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Top Navbar Styling */
+        .top-navbar {
+            background-color: #002c4f;  /* Dark navy */
+            color: white;
+            font-size: 14px;
+            padding: 0.5rem 0;
+        }
+        .top-navbar .nav-link {
+            color: white;
+            font-weight: 500;
+        }
+        .top-navbar .form-select {
+            background-color: #002c4f;
+            color: white;
+            border: 1px solid white;
+            padding: 2px 6px;
+        }
+        .top-navbar .form-select option {
+            background: white;
+            color: black;
+        }
+        .secondary-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 0.4rem 0;
+}
+
+.secondary-navbar .nav-link {
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.secondary-navbar .nav-link:hover {
+    color: #002c4f;
+}
+
+.secondary-navbar .btn-primary {
+    background-color: #002c4f;
+    border: none;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.secondary-navbar .btn-primary:hover {
+    background-color: #001b33;
+    transform: translateY(-2px);
+}
+
+.secondary-navbar .btn-outline-primary {
+    border-color: #002c4f;
+    color: #002c4f;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-navbar .btn-outline-primary:hover {
+    background-color: #002c4f;
+    color: #ffffff;
+}
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(to right, #e0f2f1, #f1f8e9);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            color: #004d40;
+            font-weight: bold;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        /* Features Section */
+        .features-section {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+        .features-section h3 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #004d40;
+            font-weight: 700;
+        }
+        .feature-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease-in-out;
+            height: 100%;
+            text-align: center;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        .feature-card img {
+            width: 40px;
+            height: 40px;
+        }
+        .feature-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .feature-link:hover {
+            text-decoration: underline;
+        }
+        /* Footer Styling */
+        .footer {
+            background-color: #004c5c;
+            color: #ffffff;
+            padding: 20px 0;
+            font-size: 0.95rem;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer a {
+            color: #ffffff;
+            font-weight: 600;
+            margin: 0 8px;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #81d4fa;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg top-navbar">
+    <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Axis_Bank_logo.svg/2560px-Axis_Bank_logo.svg.png" alt="Logo" width="120">
+        </div>
+        <ul class="navbar-nav d-none d-lg-flex">
+            <li class="nav-item mx-2"><a class="nav-link text-white" href="#">Personal</a></li>
+            <li class="nav-item dropdown mx-2">
+                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Business</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Corporate</a></li>
+                    <li><a class="dropdown-item" href="#">SME</a></li>
+                </ul>
+            </li>
+            <li class="nav-item mx-2"><a class="nav-link text-white" href="#">Priority</a></li>
+            <li class="nav-item mx-2"><a class="nav-link text-white" href="#">About Us</a></li>
+            <li class="nav-item mx-2"><a class="nav-link text-white" href="#">Support</a></li>
+        </ul>
+        <div class="d-flex align-items-center">
+            <select class="form-select form-select-sm me-3 language-select" style="width: auto;">
+                <option selected>English</option>
+                <option>Hindi</option>
+                <option>Marathi</option>
+            </select>
+            <i class="bi bi-journal-text mx-2 text-white"></i>
+            <i class="bi bi-whatsapp mx-2 text-white"></i>
+            <i class="bi bi-geo-alt mx-2 text-white"></i>
+            <i class="bi bi-percent mx-2 text-white"></i>
+            <div class="position-relative mx-2">
+                <i class="bi bi-bell text-white"></i>
+                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-circle">3</span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Secondary Navbar -->
+<nav class="navbar navbar-expand-lg secondary-navbar">
+    <div class="container-fluid px-5">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item mx-3"><a class="nav-link" href="#">Explore Products</a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="#">Grab Deals</a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="#">Make Payments</a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="#">Bank Smart</a></li>
+        </ul>
+        <div class="d-flex">
+            <a href="/open-digital" class="btn btn-outline-primary me-2">Open Digital A/c</a>
+            <!-- Conditionally display "LOGIN" or "Account" button -->
+            <span th:if="${account == null}">
+         <a href="/login" class="btn btn-primary">LOGIN</a>
+      </span>
+            <span th:if="${account != null}">
+         <a href="/dashboard" class="btn btn-primary">Account</a>
+      </span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1>Welcome to Silverlink Bank</h1>
+        <p>Your trusted partner in seamless banking and financial growth.</p>
+        <!-- Login Button -->
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <h3>Helping You Meet Your Life Goals</h3>
+        <div class="row">
+            <!-- Feature Cards -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios-filled/50/rupee.png" alt="Loan Icon"/>
+                    <h5>Personal Loan</h5>
+                    <a href="#" class="feature-link">Know More</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios/50/home.png" alt="Home Loan"/>
+                    <h5>Home Loan</h5>
+                    <a href="#" class="feature-link">Know More</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios/50/bank-card-back-side.png" alt="Credit Card"/>
+                    <h5>Credit Card</h5>
+                    <a href="#" class="feature-link">Know More</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/?size=100&id=7748&format=png&color=000000" alt="Digital Account"/>
+                    <h5>Currency Converter</h5>
+                    <a href="/currency-converter" class="feature-link">Convert</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios/50/money-transfer.png" alt="EMI Icon"/>
+                    <h6>Personal Loan EMI Calculator</h6>
+                    <a href="/emi-calculator" class="feature-link">Calculate Now</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios/50/home.png" alt="Home EMI"/>
+                    <h6>Home Loan EMI Calculator</h6>
+                    <a href="#" class="feature-link">Calculate Now</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios/50/safe.png" alt="FD"/>
+                    <h6>Fixed Deposit Calculator</h6>
+                    <a href="/fd-calculator" class="feature-link">Calculate Now</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios/50/calendar--v1.png" alt="Credit EMI"/>
+                    <h6>Credit Card EMI Calculator</h6>
+                    <a href="#" class="feature-link">Calculate Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <small>&copy; 2025 <strong>Silverlink Bank</strong>. All rights reserved.</small><br/>
+        <a href="#">Terms of Service</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Contact Us</a>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
