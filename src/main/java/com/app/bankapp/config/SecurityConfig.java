@@ -1,7 +1,5 @@
 package com.app.bankapp.config;
 
-
-import com.app.bankapp.model.Account;
 import com.app.bankapp.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AndRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -24,42 +21,34 @@ public class SecurityConfig {
     AccountService accountService;
 
     @Bean
-    public static PasswordEncoder passwordEncoder(){
+    public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf->csrf.disable())
-<<<<<<< HEAD
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/", "/home", "/register").permitAll()  // allow public access to home, register
-=======
-                .authorizeHttpRequests(authz->authz
-                        .requestMatchers("/register").permitAll()
->>>>>>> 01554bc5cede7b652643f2d12a7c82e5dcaa086f
+                        .requestMatchers("/", "/home", "/register").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(form->form
+                .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
-<<<<<<< HEAD
-                        .defaultSuccessUrl("/home",true)
-=======
-                        .defaultSuccessUrl("/dashboard",true)
->>>>>>> 01554bc5cede7b652643f2d12a7c82e5dcaa086f
+                        .defaultSuccessUrl("/dashboard", true)
                         .permitAll()
                 )
-                .logout(logout->logout
+                .logout(logout -> logout
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                         .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 )
-                .headers(header->header
-                        .frameOptions(frameOptions->frameOptions.sameOrigin()));
+                .headers(headers -> headers
+                        .frameOptions(frameOptions -> frameOptions.sameOrigin())
+                );
         return http.build();
     }
 
@@ -67,5 +56,4 @@ public class SecurityConfig {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(accountService).passwordEncoder(passwordEncoder());
     }
-
 }

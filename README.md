@@ -1,5 +1,7 @@
 <<<<<<< HEAD
 ﻿# 💳 Silverlink Banking System
+![Silverlink Front Page](./frontpage.png)
+
 
 Welcome to the **Silverlink Banking App** — a full-stack banking system designed to simulate real-world banking operations with a secure and responsive interface. This project provides core banking functionalities such as user authentication, account management, transaction handling, and a credit card module.
 

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Silverlink Bank</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,45 +31,39 @@
             color: black;
         }
         .secondary-navbar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #ddd;
-    padding: 0.4rem 0;
-}
-
-.secondary-navbar .nav-link {
-    font-weight: 500;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.secondary-navbar .nav-link:hover {
-    color: #002c4f;
-}
-
-.secondary-navbar .btn-primary {
-    background-color: #002c4f;
-    border: none;
-    font-weight: 600;
-    padding: 0.4rem 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.secondary-navbar .btn-primary:hover {
-    background-color: #001b33;
-    transform: translateY(-2px);
-}
-
-.secondary-navbar .btn-outline-primary {
-    border-color: #002c4f;
-    color: #002c4f;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.secondary-navbar .btn-outline-primary:hover {
-    background-color: #002c4f;
-    color: #ffffff;
-}
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 0.4rem 0;
+        }
+        .secondary-navbar .nav-link {
+            font-weight: 500;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .secondary-navbar .nav-link:hover {
+            color: #002c4f;
+        }
+        .secondary-navbar .btn-primary {
+            background-color: #002c4f;
+            border: none;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .secondary-navbar .btn-primary:hover {
+            background-color: #001b33;
+            transform: translateY(-2px);
+        }
+        .secondary-navbar .btn-outline-primary {
+            border-color: #002c4f;
+            color: #002c4f;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .secondary-navbar .btn-outline-primary:hover {
+            background-color: #002c4f;
+            color: #ffffff;
+        }
 
         /* Hero Section */
         .hero-section {
@@ -424,7 +419,7 @@
                 <div class="feature-card">
                     <i class="bi bi-house-gear-fill display-5 text-info mb-2"></i>
                     <h6>Home Loan EMI Calculator</h6>
-                    <a href="#" class="feature-link">Calculate Now</a>
+                    <a href="/home-loan" class="feature-link">Calculate Now</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
@@ -438,7 +433,7 @@
                 <div class="feature-card">
                     <i class="bi bi-calendar2-check-fill display-5 text-success mb-2"></i>
                     <h6>Credit Card EMI Calculator</h6>
-                    <a href="#" class="feature-link">Calculate Now</a>
+                    <a href="/credit-card" class="feature-link">Calculate Now</a>
                 </div>
             </div>
         </div>
