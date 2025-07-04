@@ -127,6 +127,7 @@ public class AccountService implements UserDetailsService {
         transactionRepository.save(creditTransaction);
 
     }
+<<<<<<< HEAD
 
     public List<Transaction> findTransactionsByUsername(String username) {
         Account account = findAccountByUsername(username);
@@ -135,4 +136,6 @@ public class AccountService implements UserDetailsService {
         }
         return List.of();
     }
+=======
+>>>>>>> 01554bc5cede7b652643f2d12a7c82e5dcaa086f
 }

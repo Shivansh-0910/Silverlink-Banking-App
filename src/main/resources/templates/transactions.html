@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <title>Transaction History - SilverLink Bank</title>
     <!-- Bootstrap 5 CSS -->
@@ -101,11 +102,97 @@
         }
         .footer a:hover {
             color: #81d4fa;
+=======
+    <title>Transaction History - SilverLink Bank</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #005f6b, #00bcd4); /* Matching gradient from login page */
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .navbar-custom {
+            background-color: #004c5c; /* Matching navbar color */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-custom .navbar-brand {
+            font-weight: bold;
+            color: #ffffff !important;
+        }
+
+        .navbar-custom .nav-link {
+            color: #ffffff !important;
+        }
+
+        .container {
+            max-width: 1000px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9); /* Matching login page background */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #004d40; /* Matching header color */
+            margin-bottom: 20px;
+        }
+
+        .table-custom {
+            background-color: #f7f7f7; /* Matching input field background */
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05); /* Slightly lighter row color */
+        }
+
+        .table-striped td, .table-striped th {
+            color: #333333; /* Darker text color */
+            font-weight: bold;
+            padding: 15px;
+            border-bottom: 1px solid #00796b; /* Matching border color */
+        }
+
+        .table-striped th {
+            background-color: rgba(0, 128, 107, 0.2); /* Subtle green header */
+        }
+
+        .text-success {
+            color: #28a745 !important;
+        }
+
+        .text-danger {
+            color: #dc3545 !important;
+        }
+
+        .custom-link {
+            color: #00796b; /* Matching link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .custom-link:hover {
+            color: #004d40; /* Matching hover color */
+>>>>>>> 01554bc5cede7b652643f2d12a7c82e5dcaa086f
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
 <!-- Top Navbar -->
 <nav class="navbar navbar-expand-lg top-navbar">
     <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
@@ -180,5 +267,45 @@
 </footer>
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+=======
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">Silverlink Bank</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/transactions">Transactions</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2 class="text-center">Transaction History</h2>
+    <div class="table-responsive table-custom">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="transaction : ${transactions}">
+                <td th:text="${transaction.id}"></td>
+                <td th:text="${transaction.type}"></td>
+                <td th:text="${transaction.amount}"
+                    th:classappend="${transaction.type.contains('Transfer In') || transaction.type == 'Deposit'} ? 'text-success' : 'text-danger'">
+                    <span th:text="${transaction.type.contains('Transfer In') || transaction.type == 'Deposit'} ? '+$' + transaction.amount : '-$' + transaction.amount"></span>
+                </td>
+                <td th:text="${transaction.timestamp}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="text-center"><a href="/dashboard" class="custom-link">Back to Dashboard</a></p>
+</div>
+
+>>>>>>> 01554bc5cede7b652643f2d12a7c82e5dcaa086f
 </body>
 </html>

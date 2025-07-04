@@ -32,14 +32,23 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
                 .csrf(csrf->csrf.disable())
+<<<<<<< HEAD
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/", "/home", "/register").permitAll()  // allow public access to home, register
+=======
+                .authorizeHttpRequests(authz->authz
+                        .requestMatchers("/register").permitAll()
+>>>>>>> 01554bc5cede7b652643f2d12a7c82e5dcaa086f
                         .anyRequest().authenticated()
                 )
                 .formLogin(form->form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
+<<<<<<< HEAD
                         .defaultSuccessUrl("/home",true)
+=======
+                        .defaultSuccessUrl("/dashboard",true)
+>>>>>>> 01554bc5cede7b652643f2d12a7c82e5dcaa086f
                         .permitAll()
                 )
                 .logout(logout->logout
