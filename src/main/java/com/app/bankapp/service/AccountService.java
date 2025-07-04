@@ -127,4 +127,12 @@ public class AccountService implements UserDetailsService {
         transactionRepository.save(creditTransaction);
 
     }
+
+    public List<Transaction> findTransactionsByUsername(String username) {
+        Account account = findAccountByUsername(username);
+        if (account != null) {
+            return account.getTransactions();
+        }
+        return List.of();
+    }
 }

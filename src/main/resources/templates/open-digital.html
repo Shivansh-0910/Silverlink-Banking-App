@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Currency Converter | Silverlink Bank</title>
+    <title>Open Digital Account | Silverlink Bank</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -10,7 +10,7 @@
     <style>
         body {
             background: linear-gradient(to right, #e0f2f1, #f1f8e9);
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
         .top-navbar {
             background-color: #002c4f;
@@ -35,53 +35,36 @@
         .secondary-navbar .nav-link:hover {
             color: #002c4f;
         }
-        .converter-section {
+        .open-account-section {
             padding: 80px 0 40px 0;
             min-height: 80vh;
         }
-        .converter-box {
-            max-width: 600px;
+        .open-account-card {
+            background-color: #fff;
+            border-radius: 14px;
+            padding: 40px 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             margin: 0 auto;
-            padding: 45px 40px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
-        }
-        .title {
-            font-size: 30px;
-            font-weight: 700;
-            color: #01579b;
-            text-align: center;
-            margin-bottom: 30px;
+            max-width: 500px;
         }
         .form-label {
             font-weight: 500;
             color: #37474f;
         }
-        .form-control, .form-select {
+        .form-control {
             border-radius: 10px;
             border: 1px solid #ccc;
         }
-        .btn-convert {
-            background: linear-gradient(to right, #0091ea, #2962ff);
+        .btn-pro {
+            background: linear-gradient(to right, #2980b9, #6dd5fa);
             color: white;
             font-weight: 600;
             padding: 12px;
             border-radius: 10px;
+            border: none;
         }
-        .btn-convert:hover {
-            background: linear-gradient(to right, #00b0ff, #304ffe);
-        }
-        .conversion-result {
-            background: #e8f5e9;
-            border-left: 5px solid #2e7d32;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 30px;
-            text-align: center;
-            font-size: 20px;
-            color: #2e7d32;
-            font-weight: 600;
+        .btn-pro:hover {
+            background: linear-gradient(to right, #1e6aa6, #57c1f2);
         }
         .footer {
             background-color: #004c5c;
@@ -121,6 +104,7 @@
             <span class="fw-bold fs-4 text-primary" style="letter-spacing:1px;">Silverlink</span>
         </div>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house-door-fill me-1"></i>Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
             <li class="nav-item"><a class="nav-link" href="/transactions"><i class="bi bi-arrow-left-right me-1"></i>Transactions</a></li>
             <li class="nav-item"><a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right me-1"></i>Logout</a></li>
@@ -130,42 +114,61 @@
 <!-- Secondary Navbar -->
 <nav class="navbar navbar-expand secondary-navbar">
     <div class="container-fluid px-5">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="bi bi-house-door-fill me-1"></i>Overview</a></li>
-            <li class="nav-item"><a class="nav-link" href="/transactions"><i class="bi bi-arrow-left-right me-1"></i>Transactions</a></li>
-            <li class="nav-item"><a class="nav-link" href="/credit-card"><i class="bi bi-credit-card-2-front-fill me-1"></i>Credit Card</a></li>
-            <li class="nav-item"><a class="nav-link" href="/fd-calculator"><i class="bi bi-piggy-bank-fill me-1"></i>FD Calculator</a></li>
-            <li class="nav-item"><a class="nav-link" href="/emi-calculator"><i class="bi bi-calculator-fill me-1"></i>EMI Calculator</a></li>
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="/products"><i class="bi bi-grid-3x3-gap-fill me-1"></i>Explore Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/deals"><i class="bi bi-stars me-1"></i>Grab Deals</a></li>
+            <li class="nav-item"><a class="nav-link" href="/payments"><i class="bi bi-cash-stack me-1"></i>Make Payments</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/open-digital"><i class="bi bi-person-plus-fill me-1"></i>Open Digital A/c</a></li>
         </ul>
-        <a class="btn btn-primary" href="/logout"><i class="bi bi-box-arrow-right me-1"></i>Logout</a>
     </div>
 </nav>
-<!-- Converter Section -->
-<div class="converter-section">
-    <div class="converter-box">
-        <div class="title"><i class="bi bi-currency-exchange text-primary me-2"></i>Currency Converter</div>
-        <form th:action="@{/currency-converter}" method="post">
-            <div class="mb-4">
-                <label class="form-label"><i class="bi bi-cash-coin me-1"></i>Amount in INR</label>
-                <input type="number" name="amount" class="form-control" required>
+<!-- Open Account Section -->
+<div class="open-account-section">
+    <div class="open-account-card">
+        <h2 class="text-center mb-4"><i class="bi bi-person-plus-fill text-primary me-2"></i>Open a Digital Account</h2>
+        <form th:action="@{/open-digital}" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-person me-1"></i>Full Name</label>
+                <input type="text" name="name" class="form-control" required />
             </div>
-            <div class="mb-4">
-                <label class="form-label"><i class="bi bi-globe me-1"></i>Convert to</label>
-                <select name="targetCurrency" class="form-select" required>
-                    <option value="USD">USD - US Dollar</option>
-                    <option value="EUR">EUR - Euro</option>
-                    <option value="GBP">GBP - British Pound</option>
-                    <option value="JPY">JPY - Japanese Yen</option>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-envelope me-1"></i>Email</label>
+                <input type="email" name="email" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-phone me-1"></i>Phone</label>
+                <input type="tel" name="phone" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-geo-alt me-1"></i>Address</label>
+                <input type="text" name="address" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-calendar me-1"></i>Date of Birth</label>
+                <input type="date" name="dob" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-bank me-1"></i>Account Type</label>
+                <select name="accountType" class="form-control" required>
+                    <option value="">Select Account Type</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Current">Current</option>
+                    <option value="Salary">Salary</option>
+                    <option value="NRI">NRI</option>
                 </select>
             </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-convert"><i class="bi bi-arrow-repeat me-1"></i>Convert</button>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-currency-rupee me-1"></i>Initial Deposit Amount</label>
+                <input type="number" name="deposit" class="form-control" min="1000" required />
             </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-file-earmark-arrow-up me-1"></i>ID Proof (optional)</label>
+                <input type="file" name="idProof" class="form-control" accept="image/*,.pdf" />
+            </div>
+            <button type="submit" class="btn btn-pro w-100 mt-2"><i class="bi bi-person-plus me-1"></i>Open Account</button>
         </form>
-        <div th:if="${convertedAmount != null}" class="conversion-result mt-4">
-            <i class="bi bi-currency-exchange me-1"></i>9<span th:text="${amount}"></span> =
-            <span th:text="${convertedAmount}"></span>
-            <span th:text="${currency}"></span>
+        <div th:if="${success}" class="alert alert-success mt-4 text-center">
+            <i class="bi bi-check-circle-fill me-1"></i>Account created successfully! You can now <a href="/login" class="link-primary">login</a>.
         </div>
     </div>
 </div>
@@ -179,3 +182,5 @@
 </footer>
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

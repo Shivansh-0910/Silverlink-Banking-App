@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Register | Silverlink Bank</title>
+    <title>Personal Loan | Silverlink Bank</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
@@ -12,8 +12,8 @@
         .secondary-navbar { background-color: #ffffff; border-bottom: 1px solid #ddd; padding: 0.4rem 0; }
         .secondary-navbar .nav-link { font-weight: 500; color: #333; transition: color 0.3s ease; }
         .secondary-navbar .nav-link:hover { color: #002c4f; }
-        .register-section { padding: 80px 0 40px 0; min-height: 80vh; }
-        .register-card { background-color: #fff; border-radius: 14px; padding: 40px 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin: 0 auto; max-width: 400px; }
+        .loan-section { padding: 80px 0 40px 0; min-height: 80vh; }
+        .loan-card { background-color: #fff; border-radius: 14px; padding: 40px 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin: 0 auto; max-width: 600px; }
         .form-label { font-weight: 500; color: #37474f; }
         .form-control { border-radius: 10px; border: 1px solid #ccc; }
         .btn-pro { background: linear-gradient(to right, #2980b9, #6dd5fa); color: white; font-weight: 600; padding: 12px; border-radius: 10px; border: none; }
@@ -38,31 +38,62 @@
         </div>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house-door-fill me-1"></i>Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/register"><i class="bi bi-person-plus-fill me-1"></i>Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/transactions"><i class="bi bi-arrow-left-right me-1"></i>Transactions</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right me-1"></i>Logout</a></li>
         </ul>
     </div>
 </nav>
-<div class="register-section">
-    <div class="register-card">
-        <h2 class="text-center mb-4"><i class="bi bi-person-plus-fill text-primary me-2"></i>Register</h2>
-        <form th:action="@{/register}" method="post">
+<nav class="navbar navbar-expand secondary-navbar">
+    <div class="container-fluid px-5">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="/products"><i class="bi bi-grid-3x3-gap-fill me-1"></i>Explore Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/deals"><i class="bi bi-stars me-1"></i>Grab Deals</a></li>
+            <li class="nav-item"><a class="nav-link" href="/payments"><i class="bi bi-cash-stack me-1"></i>Make Payments</a></li>
+            <li class="nav-item"><a class="nav-link" href="/open-digital"><i class="bi bi-person-plus-fill me-1"></i>Open Digital A/c</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/personal-loan"><i class="bi bi-cash-coin me-1"></i>Personal Loan</a></li>
+            <li class="nav-item"><a class="nav-link" href="/home-loan"><i class="bi bi-house-door me-1"></i>Home Loan</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="loan-section">
+    <div class="loan-card">
+        <h2 class="text-center mb-3"><i class="bi bi-cash-coin text-primary me-2"></i>Personal Loan</h2>
+        <p class="text-center mb-4">Get instant funds for your needs with Silverlink's hassle-free personal loans. Enjoy low interest rates, flexible repayment, and quick approval.</p>
+        <ul>
+            <li>Loan amounts up to ₹20 lakh</li>
+            <li>Tenure from 12 to 60 months</li>
+            <li>Minimal documentation</li>
+            <li>Attractive interest rates</li>
+            <li>Quick disbursal</li>
+        </ul>
+        <hr>
+        <h5 class="mb-3">Apply Now</h5>
+        <form th:action="@{/personal-loan}" method="post">
             <div class="mb-3">
-                <label class="form-label"><i class="bi bi-person-circle me-1"></i>Username</label>
-                <input type="text" name="username" class="form-control" required />
+                <label class="form-label"><i class="bi bi-person me-1"></i>Name</label>
+                <input type="text" name="name" class="form-control" required />
             </div>
             <div class="mb-3">
                 <label class="form-label"><i class="bi bi-envelope me-1"></i>Email</label>
                 <input type="email" name="email" class="form-control" required />
             </div>
             <div class="mb-3">
-                <label class="form-label"><i class="bi bi-lock-fill me-1"></i>Password</label>
-                <input type="password" name="password" class="form-control" required />
+                <label class="form-label"><i class="bi bi-phone me-1"></i>Phone</label>
+                <input type="tel" name="phone" class="form-control" required />
             </div>
-            <button type="submit" class="btn btn-pro w-100 mt-2"><i class="bi bi-person-plus me-1"></i>Register</button>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-currency-rupee me-1"></i>Loan Amount</label>
+                <input type="number" name="amount" class="form-control" min="10000" max="2000000" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="bi bi-calendar me-1"></i>Tenure (months)</label>
+                <input type="number" name="tenure" class="form-control" min="12" max="60" required />
+            </div>
+            <button type="submit" class="btn btn-pro w-100 mt-2"><i class="bi bi-send me-1"></i>Apply Now</button>
         </form>
         <div th:if="${success}" class="alert alert-success mt-4 text-center">
-            <i class="bi bi-check-circle-fill me-1"></i>Registration successful! You can now <a href="/login" class="link-primary">login</a>.
+            <i class="bi bi-check-circle-fill me-1"></i>Your application has been submitted! Our team will contact you soon.
         </div>
     </div>
 </div>
@@ -75,4 +106,4 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 

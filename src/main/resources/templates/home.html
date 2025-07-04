@@ -143,6 +143,161 @@
             color: #81d4fa;
             text-decoration: underline;
         }
+    /* --- Enhanced Dark Mode Styles --- */
+    .dark-mode {
+        background-color: #181a1b !important;
+        color: #e0e0e0 !important;
+    }
+    .dark-mode .top-navbar {
+        background-color: #23272f !important;
+        color: #e0e0e0 !important;
+        border-bottom: 1px solid #23272f;
+    }
+    .dark-mode .top-navbar .nav-link,
+    .dark-mode .top-navbar .bi,
+    .dark-mode .top-navbar .form-select {
+        color: #e0e0e0 !important;
+        background-color: transparent !important;
+    }
+    .dark-mode .form-select option {
+        background-color: #23272f !important;
+        color: #e0e0e0 !important;
+    }
+    .dark-mode .secondary-navbar {
+        background-color: #23272f !important;
+        border-bottom: 1px solid #23272f !important;
+    }
+    .dark-mode .secondary-navbar .nav-link {
+        color: #b6c2d1 !important;
+    }
+    .dark-mode .secondary-navbar .nav-link:hover {
+        color: #7dd3fc !important;
+    }
+    .dark-mode .secondary-navbar .btn-primary {
+        background-color: #4c8fff !important;
+        border-color: #4c8fff !important;
+        color: #fff !important;
+        box-shadow: 0 2px 8px rgba(76,143,255,0.15) !important;
+    }
+    .dark-mode .secondary-navbar .btn-primary:hover {
+        background-color: #3b7ee6 !important;
+    }
+    .dark-mode .secondary-navbar .btn-outline-primary {
+        color: #7dd3fc !important;
+        border-color: #7dd3fc !important;
+    }
+    .dark-mode .secondary-navbar .btn-outline-primary:hover {
+        background-color: #7dd3fc !important;
+        color: #181a1b !important;
+    }
+    .dark-mode .hero-section {
+        background: linear-gradient(to right, #23272f, #2d3540) !important;
+        color: #e1f0ff !important;
+    }
+    .dark-mode .hero-section h1 {
+        color: #7dd3fc !important;
+    }
+    .dark-mode .hero-section p {
+        color: #b6c2d1 !important;
+    }
+    .dark-mode .features-section {
+        background-color: #20232a !important;
+    }
+    .dark-mode .features-section h3 {
+        color: #7dd3fc !important;
+    }
+    .dark-mode .feature-card {
+        background-color: #23272f !important;
+        color: #e0e0e0 !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.45) !important;
+        border-radius: 14px !important;
+        border: 1px solid #2d3540 !important;
+    }
+    .dark-mode .feature-card:hover {
+        background-color: #2d3540 !important;
+        box-shadow: 0 4px 20px rgba(76,143,255,0.10) !important;
+    }
+    .dark-mode .feature-link {
+        color: #7dd3fc !important;
+    }
+    .dark-mode .feature-link:hover {
+        color: #fff !important;
+        text-decoration: underline !important;
+    }
+    .dark-mode .footer {
+        background-color: #181a1b !important;
+        color: #b6c2d1 !important;
+        border-top: 1px solid #23272f !important;
+    }
+    .dark-mode .footer a {
+        color: #7dd3fc !important;
+    }
+    .dark-mode .footer a:hover {
+        color: #fff !important;
+    }
+    /* Enhanced dark mode for dropdowns, badges, and icons */
+    .dark-mode .dropdown-menu {
+        background-color: #23272f !important;
+        color: #e0e0e0 !important;
+        border: 1px solid #2d3540 !important;
+    }
+    .dark-mode .dropdown-item {
+        color: #e0e0e0 !important;
+    }
+    .dark-mode .dropdown-item:hover {
+        background-color: #2d3540 !important;
+        color: #7dd3fc !important;
+    }
+    .dark-mode .badge.bg-danger {
+        background-color: #e57373 !important;
+        color: #fff !important;
+    }
+    .dark-mode .form-select,
+    .dark-mode input,
+    .dark-mode textarea {
+        background-color: #23272f !important;
+        color: #e0e0e0 !important;
+        border: 1px solid #2d3540 !important;
+    }
+    .dark-mode input::placeholder,
+    .dark-mode textarea::placeholder {
+        color: #b6c2d1 !important;
+    }
+    .dark-mode .btn {
+        box-shadow: 0 2px 8px rgba(76,143,255,0.10) !important;
+    }
+    .dark-mode .btn-primary {
+        background-color: #4c8fff !important;
+        border-color: #4c8fff !important;
+    }
+    .dark-mode .btn-primary:hover {
+        background-color: #3b7ee6 !important;
+    }
+    .dark-mode .btn-outline-dark {
+        color: #e0e0e0 !important;
+        border-color: #7dd3fc !important;
+    }
+    .dark-mode .btn-outline-dark:hover {
+        background-color: #7dd3fc !important;
+        color: #181a1b !important;
+    }
+    .dark-mode .btn-outline-light {
+        color: #7dd3fc !important;
+        border-color: #7dd3fc !important;
+    }
+    .dark-mode .btn-outline-light:hover {
+        background-color: #7dd3fc !important;
+        color: #181a1b !important;
+    }
+    /* Scrollbar for dark mode */
+    .dark-mode ::-webkit-scrollbar {
+        width: 10px;
+        background: #23272f;
+    }
+    .dark-mode ::-webkit-scrollbar-thumb {
+        background: #2d3540;
+        border-radius: 5px;
+    }
     </style>
 </head>
 <body>
@@ -150,7 +305,15 @@
 <nav class="navbar navbar-expand-lg top-navbar">
     <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Axis_Bank_logo.svg/2560px-Axis_Bank_logo.svg.png" alt="Logo" width="120">
+            <!-- Modern, professional SVG logo matching the color palette -->
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:8px;">
+                <rect width="48" height="48" rx="12" fill="#002c4f"/>
+                <circle cx="24" cy="24" r="14" fill="#7dd3fc"/>
+                <rect x="14" y="28" width="20" height="4" rx="2" fill="#fff"/>
+                <rect x="18" y="18" width="12" height="8" rx="2" fill="#fff"/>
+                <rect x="22" y="14" width="4" height="4" rx="2" fill="#002c4f"/>
+            </svg>
+            <span class="fw-bold fs-4 text-primary" style="letter-spacing:1px;">Silverlink</span>
         </div>
         <ul class="navbar-nav d-none d-lg-flex">
             <li class="nav-item mx-2"><a class="nav-link text-white" href="#">Personal</a></li>
@@ -171,12 +334,11 @@
                 <option>Hindi</option>
                 <option>Marathi</option>
             </select>
-            <i class="bi bi-journal-text mx-2 text-white"></i>
-            <i class="bi bi-whatsapp mx-2 text-white"></i>
-            <i class="bi bi-geo-alt mx-2 text-white"></i>
-            <i class="bi bi-percent mx-2 text-white"></i>
+            <i class="bi bi-chat-dots-fill mx-2 text-info fs-5"></i>
+            <i class="bi bi-geo-alt-fill mx-2 text-primary fs-5"></i>
+            <i class="bi bi-percent mx-2 text-success fs-5"></i>
             <div class="position-relative mx-2">
-                <i class="bi bi-bell text-white"></i>
+                <i class="bi bi-bell-fill text-warning fs-5"></i>
                 <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-circle">3</span>
             </div>
         </div>
@@ -187,10 +349,10 @@
 <nav class="navbar navbar-expand-lg secondary-navbar">
     <div class="container-fluid px-5">
         <ul class="navbar-nav mx-auto">
-            <li class="nav-item mx-3"><a class="nav-link" href="#">Explore Products</a></li>
-            <li class="nav-item mx-3"><a class="nav-link" href="#">Grab Deals</a></li>
-            <li class="nav-item mx-3"><a class="nav-link" href="#">Make Payments</a></li>
-            <li class="nav-item mx-3"><a class="nav-link" href="#">Bank Smart</a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="/products">Explore Products</a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="/deals">Grab Deals</a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="/payments">Make Payments</a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="/bank-smart">Bank Smart</a></li>
         </ul>
         <div class="d-flex">
             <a href="/open-digital" class="btn btn-outline-primary me-2">Open Digital A/c</a>
@@ -202,6 +364,9 @@
          <a href="/dashboard" class="btn btn-primary">Account</a>
       </span>
         </div>
+        <button id="themeToggle" class="btn btn-outline-dark ms-2">
+            <i class="bi bi-moon-fill me-1"></i> Dark Mode
+        </button>
     </div>
 </nav>
 
@@ -222,56 +387,56 @@
             <!-- Feature Cards -->
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/ios-filled/50/rupee.png" alt="Loan Icon"/>
+                    <i class="bi bi-cash-coin display-5 text-primary mb-2"></i>
                     <h5>Personal Loan</h5>
-                    <a href="#" class="feature-link">Know More</a>
+                    <a href="/personal-loan" class="feature-link">Know More</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/ios/50/home.png" alt="Home Loan"/>
+                    <i class="bi bi-house-door-fill display-5 text-info mb-2"></i>
                     <h5>Home Loan</h5>
-                    <a href="#" class="feature-link">Know More</a>
+                    <a href="/home-loan" class="feature-link">Know More</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/ios/50/bank-card-back-side.png" alt="Credit Card"/>
+                    <i class="bi bi-credit-card-2-front-fill display-5 text-success mb-2"></i>
                     <h5>Credit Card</h5>
-                    <a href="#" class="feature-link">Know More</a>
+                    <a href="/credit-card" class="feature-link">Know More</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/?size=100&id=7748&format=png&color=000000" alt="Digital Account"/>
+                    <i class="bi bi-currency-exchange display-5 text-primary mb-2"></i>
                     <h5>Currency Converter</h5>
                     <a href="/currency-converter" class="feature-link">Convert</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/ios/50/money-transfer.png" alt="EMI Icon"/>
+                    <i class="bi bi-calculator-fill display-5 text-warning mb-2"></i>
                     <h6>Personal Loan EMI Calculator</h6>
                     <a href="/emi-calculator" class="feature-link">Calculate Now</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/ios/50/home.png" alt="Home EMI"/>
+                    <i class="bi bi-house-gear-fill display-5 text-info mb-2"></i>
                     <h6>Home Loan EMI Calculator</h6>
                     <a href="#" class="feature-link">Calculate Now</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/ios/50/safe.png" alt="FD"/>
+                    <i class="bi bi-piggy-bank-fill display-5 text-danger mb-2"></i>
                     <h6>Fixed Deposit Calculator</h6>
                     <a href="/fd-calculator" class="feature-link">Calculate Now</a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="feature-card">
-                    <img src="https://img.icons8.com/ios/50/calendar--v1.png" alt="Credit EMI"/>
+                    <i class="bi bi-calendar2-check-fill display-5 text-success mb-2"></i>
                     <h6>Credit Card EMI Calculator</h6>
                     <a href="#" class="feature-link">Calculate Now</a>
                 </div>
@@ -292,5 +457,24 @@
 
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const toggleButton = document.getElementById("themeToggle");
+    const icon = toggleButton.querySelector("i");
+
+    toggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+
+      if (document.body.classList.contains("dark-mode")) {
+        icon.classList.replace("bi-moon-fill", "bi-sun-fill");
+        toggleButton.classList.replace("btn-outline-dark", "btn-outline-light");
+        toggleButton.innerHTML = '<i class="bi bi-sun-fill me-1"></i> Light Mode';
+      } else {
+        icon.classList.replace("bi-sun-fill", "bi-moon-fill");
+        toggleButton.classList.replace("btn-outline-light", "btn-outline-dark");
+        toggleButton.innerHTML = '<i class="bi bi-moon-fill me-1"></i> Dark Mode';
+      }
+    });
+</script>
+
 </body>
 </html>
