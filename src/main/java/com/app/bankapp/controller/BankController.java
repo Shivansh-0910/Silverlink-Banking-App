@@ -23,8 +23,10 @@ public class BankController {
     public String dashboard(Model model){
         String username= SecurityContextHolder.getContext().getAuthentication().getName();
         Account account=accountService.findAccountByUsername(username);
-         model.addAttribute("account",account);
-         return "dashboard";
+        model.addAttribute("username", username);
+        model.addAttribute("account",account);
+        model.addAttribute("transactions", accountService.getTransactionHistory(account));
+        return "dashboard";
     }
 
     @GetMapping("/register")

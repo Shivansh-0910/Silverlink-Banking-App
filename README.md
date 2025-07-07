@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿# 💳 Silverlink Banking System
+# 💳 Silverlink Banking System
 ![Silverlink Front Page](./frontpage.png)
 
 
@@ -56,7 +55,3 @@ Welcome to the **Silverlink Banking App** — a full-stack banking system design
 - ☁️ Deployment (Render, Railway, Heroku, etc.)
 
 ---
-
-=======
-﻿# Silverlink-Banking-App
->>>>>>> 
