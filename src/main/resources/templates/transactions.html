@@ -105,11 +105,11 @@
     </style>
 </head>
 <body>
+
 <!-- Top Navbar -->
 <nav class="navbar navbar-expand-lg top-navbar">
     <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <!-- Modern SVG logo -->
             <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:8px;">
                 <rect width="48" height="48" rx="12" fill="#002c4f"/>
                 <circle cx="24" cy="24" r="14" fill="#7dd3fc"/>
@@ -156,11 +156,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="transaction : ${transactions}">
+                <tr th:each="transaction : ${transactions}"
+                    th:with="sign = ${transaction.type.contains('Transfer In') or transaction.type == 'Deposit'} ? '+' : '-'">
                     <td th:text="${transaction.id}"></td>
                     <td th:text="${transaction.type}"></td>
-                    <td th:text="${transaction.type.contains('Transfer In') || transaction.type == 'Deposit'} ? '+$' + transaction.amount : '-$' + transaction.amount"
-                        th:classappend="${transaction.type.contains('Transfer In') || transaction.type == 'Deposit'} ? 'text-success' : 'text-danger'">
+                    <td th:text="${sign + '$' + transaction.amount}"
+                        th:classappend="${sign == '+'} ? 'text-success' : 'text-danger'">
                     </td>
                     <td th:text="${transaction.timestamp}"></td>
                 </tr>
