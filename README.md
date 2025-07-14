@@ -29,8 +29,6 @@ Welcome to the **Silverlink Banking App** — a full-stack banking system design
 - IntelliJ IDEA / VS Code
 - Postman (for testing APIs)
 - Git & GitHub
-- Docker (Optional - for containerization)
-- PgAdmin (for PostgreSQL GUI)
 
 ---
 
@@ -52,6 +50,5 @@ Welcome to the **Silverlink Banking App** — a full-stack banking system design
 - 📊 Data visualization (account analytics)
 - 📲 Mobile responsiveness
 - 🧪 Unit and Integration Testing
-- ☁️ Deployment (Render, Railway, Heroku, etc.)
 
 ---
